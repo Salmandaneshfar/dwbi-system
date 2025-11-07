@@ -1,3 +1,29 @@
+# Backend
+/backend/vendor/
+/backend/node_modules/
+/backend/storage/
+/backend/bootstrap/cache/
+/backend/.env
+
+# Frontend
+/frontend/node_modules/
+/frontend/dist/
+
+# Docker
+/docker/.env
+
+# System files
+/.idea/
+/.vscode/
+/.DS_Store
+Thumbs.db
+
+# Logs & backups
+/logs/
+/backups/
+/exports/
+*.sqlite
+*.db
 # Dependencies
 node_modules/
 npm-debug.log*
