@@ -1,5 +1,6 @@
 from sqlmodel import Session
 
+from app.core.config import settings
 from app.core.security import get_password_hash
 from app.db.session import engine
 from app.models import Module, ModuleRow, User
@@ -9,22 +10,21 @@ from app.services import users as user_service
 
 
 def seed_initial_data() -> None:
-    """
-    Seed the database with initial data if tables are empty.
-    """
+    """Seed required initial records when the database is empty."""
     with Session(engine) as session:
         ensure_admin_user(session)
         ensure_default_module(session)
 
 
 def ensure_admin_user(session: Session) -> None:
-    if user_service.get_user_by_username(session, "admin"):
+    if user_service.get_user_by_username(session, settings.initial_admin_username):
         return
+
     admin = User(
-        username="admin",
-        full_name="مدیر سیستم",
+        username=settings.initial_admin_username,
+        full_name=settings.initial_admin_full_name,
         role="admin",
-        hashed_password=get_password_hash("admin123"),
+        hashed_password=get_password_hash(settings.initial_admin_password),
         is_active=True,
     )
     session.add(admin)
@@ -55,4 +55,3 @@ def ensure_default_module(session: Session) -> None:
             session,
             ModuleRow(module_id=module_id, idx=idx, data=data),
         )
-

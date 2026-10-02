@@ -1,64 +1,64 @@
-# Backend
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Backend runtime and secrets
 /backend/vendor/
 /backend/node_modules/
 /backend/storage/
 /backend/bootstrap/cache/
 /backend/.env
-
-# Frontend
-/frontend/node_modules/
-/frontend/dist/
-
-# Docker
-/docker/.env
-
-# System files
-/.idea/
-/.vscode/
-/.DS_Store
-Thumbs.db
-
-# Logs & backups
-/logs/
-/backups/
-/exports/
 *.sqlite
 *.db
-# Dependencies
+
+# Frontend and JavaScript
+/frontend/node_modules/
+/frontend/dist/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Runtime data
-pids
+# Docker secrets
+/docker/.env
+
+# Logs, backups, and exports
+/logs/
+/backups/
+/exports/
+logs/
+*.log
+*.json.bak
+*.bak
+*.backup
+backup/
+
+# Runtime and temporary files
+pids/
 *.pid
 *.seed
 *.pid.lock
+*.tmp
+*.temp
 
-# Logs
-logs/
-*.log
-
-# Data files
-data.json
-*.json.bak
-
-# Environment variables
+# Local environment files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDE files
-.vscode/
+# Editors and operating systems
 .idea/
+.vscode/
 *.swp
 *.swo
 *~
-
-# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -66,12 +66,3 @@ data.json
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Backup files
-*.bak
-*.backup
-backup/
-
-# Temporary files
-*.tmp
-*.temp
